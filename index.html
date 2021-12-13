@@ -63,7 +63,7 @@ traumatologia.sort( (elem1,elem2) => {
 radiologia.shift();
 radiologia.pop();
 
-//requerimiento número 3
+//requerimiento número 3.
 
 
 
@@ -75,11 +75,11 @@ const pacientesDent = dental.map(x => x.paciente);
 
 const pacientes = pacientesRad.concat(pacientesTrau, pacientesDent);
 
+//requerimiento número 5
+const isapreDent = dental.filter(x => x.prevision == "ISAPRE");
 
-
-
-
-
+//requerimiento número 6
+const fonasaTrau = traumatologia.filter(x => x.prevision == "FONASA");
 
 
 //Agregar código para el desafio 2 aquí
@@ -92,11 +92,26 @@ document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
 document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0].prevision} | Última atención: ${radiologia[radiologia.length -1].paciente} - ${radiologia[radiologia.length -1].prevision}.</p>`);
 document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length -1].paciente} - ${traumatologia[traumatologia.length -1].prevision}.</p>`);
 document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length -1].paciente} - ${dental[dental.length -1].prevision}.</p>`);
+
+//imprimimos en el html el requerimiento 4
 document.write(`<h1>Total de pacientes que se atienden:</h1>`)
 
 for (paciente of pacientes){
     document.write(`<p>${paciente}</p>`)
 };
+
+//imprimimos en el html el requerimiento 5
+document.write(`<h1>Pacientes dental que se antienden con ISAPRE:</h1>`)
+
+for (dentIsapre of isapreDent) {
+    document.write(`<p>${dentIsapre.paciente} - ${dentIsapre.prevision}</p>`)
+}
+//imprimimos en el html el requerimiento 6
+document.write(`<h1>Pacientes traumatología que se antienden con FONASA:</h1>`)
+
+for (trauFonasa of fonasaTrau) {
+    document.write(`<p>${trauFonasa.paciente} - ${trauFonasa.prevision}</p>`)
+}
 </script>
 <body>
     
