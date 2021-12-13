@@ -97,20 +97,20 @@ document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatolo
 document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length -1].paciente} - ${dental[dental.length -1].prevision}.</p>`);
 
 //imprimimos en el html el requerimiento 4
-document.write(`<h1>Total de pacientes que se atienden:</h1>`)
+document.write(`<h1>(resultado requerimiento 4)Total de pacientes que se atienden:</h1>`)
 
 for (paciente of pacientes){
     document.write(`<p>${paciente}</p>`)
 };
 
 //imprimimos en el html el requerimiento 5
-document.write(`<h1>Pacientes dental que se antienden con ISAPRE:</h1>`)
+document.write(`<h1>(resultado requerimiento 5)Pacientes dental que se antienden con ISAPRE:</h1>`)
 
 for (dentIsapre of isapreDent) {
     document.write(`<p>${dentIsapre.paciente} - ${dentIsapre.prevision}</p>`)
 }
 //imprimimos en el html el requerimiento 6
-document.write(`<h1>Pacientes traumatología que se antienden con FONASA:</h1>`)
+document.write(`<h1>(resultado requerimiento 6)Pacientes traumatología que se antienden con FONASA:</h1>`)
 
 for (trauFonasa of fonasaTrau) {
     document.write(`<p>${trauFonasa.paciente} - ${trauFonasa.prevision}</p>`)
