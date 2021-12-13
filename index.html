@@ -64,8 +64,11 @@ radiologia.shift();
 radiologia.pop();
 
 //requerimiento número 3.
+document.write (`<h1>Resultado requerimiento 3 del desafío:</h1>`);
 
-
+for (ficha of dental) {
+    document.write (`<p>${ficha.hora} - ${ficha.especialista} - ${ficha.paciente} - ${ficha.rut} - ${ficha.prevision}</p>`);
+}
 
 //requerimiento número 4
 
