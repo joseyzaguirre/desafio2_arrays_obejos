@@ -17,7 +17,7 @@ var radiologia = [
     {hora: '16:00', especialista: 'PATRICIA SUAZO', paciente: 'RAMON ULLOA', rut: '14989389-K', prevision: 'FONASA'},
 ];
 
-let traumatologia = [
+var traumatologia = [
     {hora: '08:00',  especialista: 'MARIA PAZ ALTUZARRA', paciente: 'PAULA SANCHEZ',     rut: '15554774-5', prevision: 'FONASA'},
     {hora: '10:00', especialista: 'RAUL ARAYA',          paciente: 'ANGÉLICA NAVAS',    rut: '15444147-9', prevision: 'ISAPRE'},
     {hora: '10:30', especialista: 'MARIA ARRIAGADA',     paciente: 'ANA KLAPP',         rut: '17879423-9', prevision: 'ISAPRE'},
@@ -50,6 +50,7 @@ let agregartrau = [
 
 traumatologia = traumatologia.concat(agregartrau); // .sort((x,y) => x.hora< y.hora ? 1 : -1)
 
+//aquí ordené traumatología para que su contenido vaya desde la hora más temprano a la más tarde
 traumatologia.sort( (elem1,elem2) => {
     if (elem1.hora > elem2.hora) {
         return 10;
@@ -68,25 +69,49 @@ document.write (`<h1>Resultado requerimiento 3 del desafío:</h1>`);
 
 for (ficha of dental) {
     document.write (`<p>${ficha.hora} - ${ficha.especialista} - ${ficha.paciente} - ${ficha.rut} - ${ficha.prevision}</p>`);
-}
+};
 
 //requerimiento número 4
 
+//primero creo arrays nuevos que contengan exclusivamente los nombres de los pacientes de cada array original, luego los junto con concat para obtener un nuevo array que contenga todos los pacientes del centor médico
 const pacientesRad = radiologia.map(x => x.paciente);
 const pacientesTrau = traumatologia.map(x => x.paciente);
 const pacientesDent = dental.map(x => x.paciente);
 
 const pacientes = pacientesRad.concat(pacientesTrau, pacientesDent);
 
+//imprimimos en el html el requerimiento 4
+document.write(`<h1>(resultado requerimiento 4)Total de pacientes que se atienden:</h1>`);
+
+for (paciente of pacientes){
+    document.write(`<p>${paciente}</p>`);
+};
+
+
 //requerimiento número 5
 const isapreDent = dental.filter(x => x.prevision == "ISAPRE");
+
+//imprimimos en el html el requerimiento 5
+document.write(`<h1>(resultado requerimiento 5)Pacientes dental que se antienden con ISAPRE:</h1>`);
+
+for (dentIsapre of isapreDent) {
+    document.write(`<p>${dentIsapre.paciente} - ${dentIsapre.prevision}</p>`);
+};
 
 //requerimiento número 6
 const fonasaTrau = traumatologia.filter(x => x.prevision == "FONASA");
 
+//imprimimos en el html el requerimiento 6
+document.write(`<h1>(resultado requerimiento 6)Pacientes traumatología que se antienden con FONASA:</h1>`);
+
+for (trauFonasa of fonasaTrau) {
+    document.write(`<p>${trauFonasa.paciente} - ${trauFonasa.prevision}</p>`);
+};
+
 
 //Agregar código para el desafio 2 aquí
 
+document.write(`<h1>---------------</h1>`);
 document.write(`<p>Cantidad de atenciones para Radiología: ${radiologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Traumatología: ${traumatologia.length}</p>`);
 document.write(`<p>Cantidad de atenciones para Dental: ${dental.length}</p>`);
@@ -96,25 +121,6 @@ document.write(`<p>Primera atencion: ${radiologia[0].paciente} - ${radiologia[0]
 document.write(`<p>Primera atencion: ${traumatologia[0].paciente} - ${traumatologia[0].prevision} | Última atención: ${traumatologia[traumatologia.length -1].paciente} - ${traumatologia[traumatologia.length -1].prevision}.</p>`);
 document.write(`<p>Primera atencion: ${dental[0].paciente} - ${dental[0].prevision} | Última atención: ${dental[dental.length -1].paciente} - ${dental[dental.length -1].prevision}.</p>`);
 
-//imprimimos en el html el requerimiento 4
-document.write(`<h1>(resultado requerimiento 4)Total de pacientes que se atienden:</h1>`)
-
-for (paciente of pacientes){
-    document.write(`<p>${paciente}</p>`)
-};
-
-//imprimimos en el html el requerimiento 5
-document.write(`<h1>(resultado requerimiento 5)Pacientes dental que se antienden con ISAPRE:</h1>`)
-
-for (dentIsapre of isapreDent) {
-    document.write(`<p>${dentIsapre.paciente} - ${dentIsapre.prevision}</p>`)
-}
-//imprimimos en el html el requerimiento 6
-document.write(`<h1>(resultado requerimiento 6)Pacientes traumatología que se antienden con FONASA:</h1>`)
-
-for (trauFonasa of fonasaTrau) {
-    document.write(`<p>${trauFonasa.paciente} - ${trauFonasa.prevision}</p>`)
-}
 </script>
 <body>
     
